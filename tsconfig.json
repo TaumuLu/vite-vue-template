@@ -2,8 +2,8 @@
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
-    "module": "ESNext",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
     "skipLibCheck": true,
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -13,15 +13,20 @@
     "noEmit": true,
     "jsx": "preserve",
     /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true,
+    "ignoreDeprecations": "5.0",
+    "strict": true,
+    "experimentalDecorators": true,
+    "strictNullChecks": false,
+    "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["src/*"]
     }
   },
-  "include": ["src/**/*", "typings/**/*", "packages/*/src"],
+  "types": ["gsap/types"],
+  "include": ["src"],
   "references": [
     {
       "path": "./tsconfig.node.json"

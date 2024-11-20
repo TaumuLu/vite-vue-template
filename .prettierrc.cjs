@@ -4,7 +4,7 @@ module.exports = {
   trailingComma: 'all',
   endOfLine: 'auto',
   tabWidth: 2,
-  printWidth: 80,
+  printWidth: 120,
   useTabs: false,
   singleQuote: true,
   jsxSingleQuote: true,
