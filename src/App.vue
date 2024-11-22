@@ -1,9 +1,5 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <div>
+  <div class="flex justify-center">
     <a href="https://vitejs.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>
@@ -13,6 +9,10 @@ import HelloWorld from './components/HelloWorld.vue'
   </div>
   <HelloWorld msg="Vite + Vue" />
 </template>
+
+<script setup lang="ts">
+import HelloWorld from './components/HelloWorld.vue'
+</script>
 
 <style>
 #root {
@@ -24,7 +24,6 @@ import HelloWorld from './components/HelloWorld.vue'
 
 .logo {
   height: 6em;
-  padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
 }

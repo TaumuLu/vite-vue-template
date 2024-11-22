@@ -1,12 +1,12 @@
 import vue from '@vitejs/plugin-vue'
+import autoprefixer from 'autoprefixer'
 import { resolve } from 'path'
 import postCssPxToRem from 'postcss-pxtorem'
+import tailwindcss from 'tailwindcss'
 // import { visualizer } from 'rollup-plugin-visualizer'
 import { defineConfig, loadEnv } from 'vite'
 
 import { writeVersion } from './plugins/writeVersion'
-
-// const version = process.env.VITE_COMMIT_HASH ?? 'dev'
 
 // 写版本号到文件
 const commitHash = writeVersion()
@@ -57,6 +57,7 @@ export default defineConfig(({ mode, command }) => {
     server: {
       host: '0.0.0.0',
       open: isTrue(env.VITE_OPEN),
+      port: Number(env.VITE_PORT || null),
       proxy: {
         // '/api': {
         //   target: 'http://127.0.0.1:8089/',
@@ -72,12 +73,14 @@ export default defineConfig(({ mode, command }) => {
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@use "sass:math"; @use "@/styles/variable.scss";`,
+          // additionalData: `@use "sass:math";`,
           silenceDeprecations: ['legacy-js-api'],
         },
       },
       postcss: {
         plugins: [
+          tailwindcss,
+          autoprefixer,
           postCssPxToRem({
             rootValue: () => {
               return rootValue

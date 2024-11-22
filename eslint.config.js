@@ -6,10 +6,10 @@ import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
 export default tseslint.config(
-  eslint.configs.recommended,
-  ...tseslint.configs.recommended,
-  ...pluginVue.configs['flat/essential'],
+  { ignores: ['dist'] },
+  // common
   {
+    extends: [eslint.configs.recommended, ...tseslint.configs.recommended],
     plugins: {
       prettier,
       'simple-import-sort': simpleImportSort,
@@ -49,14 +49,21 @@ export default tseslint.config(
       'no-empty': 'warn',
     },
   },
+  // nodejs
   {
-    files: ['*.{js,cjs,mjs,ts}', 'plugins/**/*.{js,cjs,mjs,ts}', 'scripts/**/*.{js,cjs,mjs,ts}'],
+    files: ['', 'plugins/**', 'scripts/**', 'server/**'].map(path => `${path}*.{js,cjs,mjs,ts}`),
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.node,
     },
   },
-  { files: ['**/*.vue'], languageOptions: { parserOptions: { parser: tseslint.parser } } },
+  // vue
+  {
+    files: ['**/*.vue'],
+    extends: [...pluginVue.configs['flat/essential']],
+    languageOptions: { parserOptions: { parser: tseslint.parser } },
+  },
+  // src
   {
     files: ['src/**/*.{js,mjs,cjs,ts,vue}'],
     // ignores: ['lib/*', 'backup/*', 'dist/*', 'public/*', '.vite/*', 'backup/*', '**/node_modules/'],

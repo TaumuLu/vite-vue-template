@@ -1,0 +1,4 @@
+@import url('~normalize.css/normalize.css');
+@import url('./globals.css');
+@import url('./backgroundImage.css');
+@import url('./theme.css');

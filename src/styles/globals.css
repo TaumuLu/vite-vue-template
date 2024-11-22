@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @layer base {
+  @font-face {
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+  }
+} */
+
+/* https://github.com/tailwindlabs/tailwindcss/discussions/6974 */
+
+/* @layer utilities {
+  .font-base {
+    font-size: 62.5%;
+  }
+} */
