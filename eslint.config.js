@@ -56,6 +56,9 @@ export default tseslint.config(
       ecmaVersion: 2020,
       globals: globals.node,
     },
+    rules: {
+      '@typescript-eslint/no-require-imports': 'off',
+    },
   },
   // vue
   {

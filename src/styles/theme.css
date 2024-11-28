@@ -1,21 +1,15 @@
 /* 白色 */
 :root {
-  --background: #e5eff4;
+  --background: #fff;
   --foreground: #000;
   --h1: #000;
-  --h2: #8ca3c4;
-  --btn: #2283f6;
-  --border-1: transparent;
-  --border-2: #aebcd3;
+  --border-1: #000;
 }
 
 /* 暗色 */
 .dark {
-  --background: #0e131b;
+  --background: #000;
   --foreground: #fff;
   --h1: #fff;
-  --h2: #53647d;
-  --btn: #2283f6;
-  --border-1: #383c46;
-  --border-2: #2e3138;
+  --border-1: #fff;
 }

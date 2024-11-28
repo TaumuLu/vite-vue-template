@@ -1,5 +1,9 @@
 import type { Config } from 'tailwindcss'
 import plugin from 'tailwindcss/plugin'
+// import { KeyValuePair } from 'tailwindcss/types/config'
+
+// const unit = '--unit'
+// const convert = value => `calc(${value} * var(${unit}))`
 
 export default {
   darkMode: 'class',
@@ -11,18 +15,32 @@ export default {
       sm: '640px',
       md: '768px',
       lg: '1024px',
-      sxg: '1124px',
       xl: '1280px',
       '2xl': '1536px',
       '3xl': '1920px',
     },
+    // spacing: () => {
+    //   return Array.from({ length: 201 }).reduce<KeyValuePair<string>>((map, _, index) => {
+    //     map[index] = `${convert(index)}`
+    //     return map
+    //   }, {})
+    // },
     extend: {
-      aspectRatio: {
-        '3/1': '3 / 1',
-      },
       backgroundImage: () => ({
         loginBg: 'var(--login-bg)',
       }),
+      // fontSize: ({ theme }) => ({
+      //   ...theme('spacing'),
+      // }),
+      // borderWidth: ({ theme }) => ({
+      //   ...theme('spacing'),
+      // }),
+      // borderRadius: ({ theme }) => ({
+      //   ...theme('spacing'),
+      // }),
+      aspectRatio: {
+        '3/1': '3 / 1',
+      },
       width: {
         sm: '640px',
         md: '768px',
@@ -30,29 +48,16 @@ export default {
         xl: '1280px',
         '2xl': '1536px',
         '3xl': '1920px',
-        layout_top: 'var(--layoutTop)',
       },
-      height: {
-        layout_top: 'var(--layoutTop)',
-      },
-      padding: {
-        layout_top: 'var(--layoutTop)',
-      },
-      boxShadow: {
-        theme_wrap: 'var(--wrap-shadow)',
-      },
-      borderWidth: {},
-      borderRadius: {
-        mid: '20px',
-      },
+      height: {},
+      padding: {},
+      boxShadow: {},
       colors: {
         // 主题色
         // theme 开头作为标识方便识别查找，下划线断词和 tailwind 区分开
         theme_background: 'var(--background)', // 背景
         theme_foreground: 'var(--foreground)', // 前景
         theme_h1: 'var(--h1)', // 一级标题
-        theme_h2: 'var(--h2)', // 二级标题
-        theme_btn: 'var(--btn)', // 按钮
         theme_border_1: 'var(--border-1)', // 边框1
       },
       keyframes: {
@@ -74,6 +79,10 @@ export default {
 
   plugins: [
     require('tailwindcss-animate'),
+    // function ({ addVariant }) {
+    //   addVariant('vertical', '.vertical &')
+    //   addVariant('horizontal', '.horizontal &')
+    // },
     plugin(({ addUtilities }) => {
       const newUtilities = {
         '.flex-center': {
